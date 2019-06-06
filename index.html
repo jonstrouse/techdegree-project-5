@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Photo Gallery</title>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link type="text/css" rel="stylesheet" href="lightGallery/css/lightgallery.min.css" />
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+
+  <body>
+    <header>
+      <div class="search">
+        <input type="text" name="input-field" id="input-field" placeholder="Search">
+      </div>
+    </header>
+
+    <main>
+      <div id="relative-caption">
+
+          <a href="photos/01.jpg" data-sub-html=".caption" class="filter">
+          <img src="photos/thumbnails/01.jpg" alt="Hay Bales"/>
+          <div class="caption">
+              <h2>Hay Bales</h2><p>I love hay bales. Took this snap on a drive through the countryside past some straw fields.</p>
+          </div>
+          </a>
+
+          <a href="photos/02.jpg" data-sub-html=".caption" class="filter">
+          <img src="photos/thumbnails/02.jpg" alt="Lake"/>
+          <div class="caption">
+              <h2>Lake</h2><p>The lake was so calm today. We had a great view of the snow on the mountains from here.</p>
+          </div>
+          </a>
+
+          <a href="photos/03.jpg" data-sub-html=".caption" class="filter">
+          <img src="photos/thumbnails/03.jpg" alt="Canyon"/>
+          <div class="caption">
+              <h2>Canyon</h2><p>I hiked to the top of the mountain and got this picture of the canyon and trees below.</p>
+          </div>
+          </a>
+
+          <a href="photos/04.jpg" data-sub-html=".caption" class="filter">
+          <img src="photos/thumbnails/04.jpg" alt="Iceberg"/>
+          <div class="caption">
+              <h2>Iceberg</h2><p>It was amazing to see an iceberg up close, it was so cold but didn’t snow today.</p>
+          </div>
+          </a>
+
+          <a href="photos/05.jpg" data-sub-html=".caption" class="filter">
+          <img src="photos/thumbnails/05.jpg" alt="Desert"/>
+          <div class="caption">
+              <h2>Desert</h2><p>The red cliffs were beautiful. It was really hot in the desert but we did a lot of walking through the canyons.</p>
+          </div>
+          </a>
+
+          <a href="photos/06.jpg" data-sub-html=".caption" class="filter">
+          <img src="photos/thumbnails/06.jpg" alt="Fall Scene"/>
+          <div class="caption">
+              <h2>Fall</h2><p>Fall is coming, I love when the leaves on the trees start to change color.</p>
+            </div>
+          </a>
+
+          <a href="photos/07.jpg" data-sub-html=".caption" class="filter">
+          <img src="photos/thumbnails/07.jpg" alt="Plantation"/>
+          <div class="caption">
+              <h2>Plantation</h2><p>I drove past this plantation yesterday, everything is so green!</p>
+          </div>
+          </a>
+
+          <a href="photos/08.jpg" data-sub-html=".caption" class="filter">
+          <img src="photos/thumbnails/08.jpg" alt="Sand Dunes"/>
+          <div class="caption">
+              <h2>Dunes</h2><p>I hiked to the top of the mountain and got this picture of the canyon and trees below.</p>
+          </div>
+          </a>
+
+          <a href="photos/09.jpg" data-sub-html=".caption" class="filter">
+          <img src="photos/thumbnails/09.jpg" alt="Countryside Lane"/>
+          <div class="caption">
+              <h2>Countryside Lane</h2><p>We enjoyed a quiet stroll down this countryside lane.</p>
+          </div>
+          </a>
+
+          <a href="photos/10.jpg" data-sub-html=".caption" class="filter">
+          <img src="photos/thumbnails/10.jpg" alt="Sunset Photo"/>
+          <div class="caption">
+              <h2>Sunset</h2><p>Sunset at the coast! The sky turned a lovely shade of orange.</p>
+          </div>
+          </a>
+
+          <a href="photos/11.jpg" data-sub-html=".caption" class="filter">
+          <img src="photos/thumbnails/11.jpg" alt="Cave Picture"/>
+          <div class="caption">
+              <h2>Cave</h2><p>I did a tour of a cave today and the view of the landscape below was breathtaking.</p>
+          </div>
+          </a>
+
+          <a href="photos/12.jpg" data-sub-html=".caption" class="filter">
+          <img src="photos/thumbnails/12.jpg" alt="Field of BLuebells"/>
+          <div class="caption">
+              <h2>Bluebells</h2><p>I walked through this meadow of bluebells and got a good view of the snow on the mountain before the fog came in.</p>
+          </div>
+          </a>
+
+      </div>
+    </main>
+
+
+
+
+
+
+    <script src="jquery-3.4.1.min.js"></script>
+    <script src="lightGallery/js/lightgallery.min.js"></script>
+    <script src="lightGallery/js/lg-thumbnail.min.js"></script>
+    <script src="lightGallery/js/lg-fullscreen.min.js"></script>
+
+    <script>
+
+      $('#relative-caption').lightGallery({
+        subHtmlSelectorRelative: true
+        });
+
+        let search = $('#input-field');
+        const picTitle = $('.caption h2');
+        const picText = $('.caption p');
+        const picture = $('.filter');
+
+        $(search).on('keyup', function(){
+          $( picture ).addClass('hide');
+          for (var i = 0; i < picTitle.length; i ++) {
+            if ( picTitle[i].innerText.includes( search.val() ) === true || picText[i].innerText.includes( search.val() ) === true ) {
+              $( picture[i] ).removeClass('hide');
+              console.log( picture[i] );
+            };
+            };
+          });
+
+    </script>
+
+  </body>
+</html>
