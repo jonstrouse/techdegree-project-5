@@ -113,9 +113,9 @@
 
 
     <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/lightGallery/js/lightgallery.min.js"></script>
-    <script src="js/lightGallery/js/lg-thumbnail.min.js"></script>
-    <script src="js/lightGallery/js/lg-fullscreen.min.js"></script>
+    <script src="lightGallery/js/lightgallery.min.js"></script>
+    <script src="lightGallery/js/lg-thumbnail.min.js"></script>
+    <script src="lightGallery/js/lg-fullscreen.min.js"></script>
 
     <script>
 
@@ -131,7 +131,7 @@
         $(search).on('keyup', function(){
           $( picture ).addClass('hide');
           for (var i = 0; i < picTitle.length; i ++) {
-            if ( picTitle[i].innerText.includes( search.val() ) === true || picText[i].innerText.includes( search.val() ) === true ) {
+            if ( picTitle[i].innerText.toLowerCase().includes( search.val().toLowerCase() ) === true || picText[i].innerText.toLowerCase().includes( search.val().toLowerCase() ) === true ) {
               $( picture[i] ).removeClass('hide');
               console.log( picture[i] );
             };
